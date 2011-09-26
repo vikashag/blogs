@@ -1,0 +1,47 @@
+<h1>All Categories</h1>
+
+<table>
+
+
+  <tr>
+    <th>Category Name</th>
+
+  <th></th>
+    <th></th>
+    <th></th>
+
+  </tr>
+
+<% @categories.each do |category| %>
+
+  <tr>
+    <td><%= category.catName %></td>
+
+     <table>
+
+ 		<tr> <b> Post Name <b/> </tr>
+		  <% @posts.each do |post| %>
+
+		  <tr>
+                  <td><%= post.name %></td>
+   <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+
+ </tr>
+<% end %>
+</table>
+
+
+    <td><%= link_to 'Show', category %></td>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
+
+ </tr>
+<% end %>
+</table>
+
+<br/>
+
+<%= link_to 'New Category', new_category_path %> | <%= link_to 'All Posts', posts_path %> 
+

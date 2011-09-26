@@ -1,0 +1,23 @@
+<p>
+  <b>Post Name:</b>
+  <%= post.name %>
+</p>
+ 
+<p>
+  <b>Title:</b>
+  <%= post.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= post.content %>
+</p>
+
+
+<p>
+ <%= link_to 'Destroy Post', [post.category, post],
+              :confirm => 'Are you sure?',
+              :method => :delete %>
+
+
+</p>
