@@ -1,7 +1,9 @@
 <h1>All Categories</h1>
+<table style="width:100%">
+<tr>
 
-<table>
-
+<td style="width:30%">
+<table  border="10">
 
   
 
@@ -17,24 +19,43 @@
 
 
 	       <tr>
-                  <td><%= post.name %></td>
-		  <td><%= link_to 'Show', post %></td>
+                 <td><%= link_to post.name, post %></td>
                   <td><%= link_to 'Edit', edit_post_path(post) %></td>
                   <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
 
 	      </tr>
 
 	    <% end %>
-<tr>
-<td>
-<br/>
-</td>
-<tr/>
+	<tr>
+		<td>
+		<br/>
+		</td>
+	<tr/>
 
 
 <% end %>
 </table>
+</td>
 
+
+<td style="width:100%; valign:top;">
+<table border=10 style="width:100%">
+<tr>
+<td>
+Hi
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
 <br/>
 
 <%= link_to 'New Category', new_category_path %> | <%= link_to 'All Posts', posts_path %> 

@@ -1,3 +1,50 @@
+
+
+
+<h1>All Categories</h1>
+<table style="width:100%">
+<tr>
+
+<td style="width:30%; valign:top">
+<table  border="10">
+
+  
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><b>Category  <%= category.catName %></b></td>
+           <td><%= link_to 'Show', category %></td>
+           <td><%= link_to 'Edit', edit_category_path(category) %></td>
+           <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
+    
+       	    <% category.posts.each do |post| %>
+ </tr>
+
+
+	       <tr>
+                 <td><%= link_to post.name, post %></td>
+                  <td><%= link_to 'Edit', edit_post_path(post) %></td>
+                  <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+
+	      </tr>
+
+	    <% end %>
+	<tr>
+		<td>
+		<br/>
+		</td>
+	<tr/>
+
+
+<% end %>
+</table>
+</td>
+
+
+<td style="width:100%; valign:top;">
+<table border=10 style="width:100%">
+<tr>
+<td>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -27,3 +74,58 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+
+<%= link_to 'New Category', new_category_path %> | <%= link_to 'All Posts', posts_path %> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

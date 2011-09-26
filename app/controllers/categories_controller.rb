@@ -88,5 +88,9 @@ class CategoriesController < ApplicationController
     @categories = Category.all
     @category = Category.find(params[:id])
     @category.destroy
+   respond_to do |format|
+      format.html { redirect_to categories_url }
+      format.json { head :ok }
+    end
   end
 end
