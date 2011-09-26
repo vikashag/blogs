@@ -13,12 +13,11 @@ class CategoriesController < ApplicationController
     end
   end
 
-
   # GET /categories/1
   # GET /categories/1.json
   def show
       #  @posts = Post.find(params[:id])
-         @posts = Post.where("catid = ?", params[:id])
+         @posts = Post.where("category_id = ?", params[:id])
 
     	@categories = Category.find(params[:id])
      	respond_to do |format|

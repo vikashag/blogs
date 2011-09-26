@@ -3,41 +3,35 @@
 <table>
 
 
-  <tr>
-    <th>Category Name</th>
-
-  <th></th>
-    <th></th>
-    <th></th>
-
-  </tr>
+  
 
 <% @categories.each do |category| %>
-
   <tr>
-    <td><%= category.catName %></td>
+    <td><b>Category  <%= category.catName %></b></td>
+           <td><%= link_to 'Show', category %></td>
+           <td><%= link_to 'Edit', edit_category_path(category) %></td>
+           <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
+    
+       	    <% category.posts.each do |post| %>
+ </tr>
 
-     <table>
 
- 		<tr> <b> Post Name <b/> </tr>
-		  <% @posts.each do |post| %>
-
-		  <tr>
+	       <tr>
                   <td><%= post.name %></td>
-   <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+		  <td><%= link_to 'Show', post %></td>
+                  <td><%= link_to 'Edit', edit_post_path(post) %></td>
+                  <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
 
- </tr>
-<% end %>
-</table>
+	      </tr>
+
+	    <% end %>
+<tr>
+<td>
+<br/>
+</td>
+<tr/>
 
 
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
-
- </tr>
 <% end %>
 </table>
 
