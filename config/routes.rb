@@ -1,8 +1,11 @@
 Blog::Application.routes.draw do
  
+  get "sessions/new"
+
   get "users/new"
 
-  resources :users     
+ # resources :users     
+
 
   resources :posts do
    resources :comments
@@ -68,13 +71,25 @@ Blog::Application.routes.draw do
   root :to => 'home#index'
 
 
-  # get "users/new"  
+   get "users/new"  
 
 #Auth::Application.routes.draw do  
+  get "sessions/new"
+
  # get "sign_up" => "users#new", :as => "sign_up"  
  # root :to => "users#new"  
  # resources :users  
 #end 
+
+    #Auth::Application.routes.draw do  
+      get "log_in" => "sessions#new", :as => "log_in"  
+      
+      get "sign_up" => "users#new", :as => "sign_up"  
+      root :to => "users#new"  
+      resources :users  
+      resources :sessions  
+    #end  
+
 
 
   # See how all your routes lay out with "rake routes"

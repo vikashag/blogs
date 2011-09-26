@@ -5,7 +5,7 @@
 <table style="width:100%">
 <tr>
 
-<td style="width:30%; valign:top">
+<td style="width:30%;" valign="top" >
 <table  border="10">
 
   
@@ -23,8 +23,17 @@
 
 	       <tr>
                  <td><%= link_to post.name, post %></td>
-                  <td><%= link_to 'Edit', edit_post_path(post) %></td>
-                  <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+
+    <% if session[:user_id] == 'null' %>
+		<td>Not </td>
+		<td> Admin </td>
+	<% else %>
+
+		 <td> <%= link_to 'Edit', edit_post_path(post) %> </td>
+                  <td> <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %> </td>
+  <% end %>
+
+                 
 
 	      </tr>
 
@@ -41,7 +50,7 @@
 </td>
 
 
-<td style="width:100%; valign:top;">
+<td style="width:100%;" valign="top";>
 <table border=10 style="width:100%">
 <tr>
 <td>

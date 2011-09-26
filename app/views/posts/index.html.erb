@@ -1,5 +1,12 @@
 <h1>Listing posts</h1>
 
+<% if session[:user_id] == 'null' %>
+<p> Not Exist </p>
+<% else %>
+<%= session[:user_id] %>
+<p> Exist </p>
+<% end %>
+
 <table>
   <tr>
     <th>Name</th>
@@ -47,6 +54,9 @@
 
   <tr>
     <td><%= category.catName %></td>
+
+ 
+
     <td><%= link_to 'Show', category %></td>
     <td><%= link_to 'Edit', edit_category_path(category) %></td>
     <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
