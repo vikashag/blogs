@@ -12,7 +12,7 @@
 
 <% @categories.each do |category| %>
   <tr>
-    <td><b>Category  <%= category.catName %></b></td>
+    <td><b><%= category.catName %></b></td>
            <td><%= link_to 'Show', category %></td>
            <td><%= link_to 'Edit', edit_category_path(category) %></td>
            <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
@@ -55,6 +55,11 @@
 <tr>
 <td>
 <p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @post.created_at %>
+</p>
 
 <p>
   <b>Name:</b>

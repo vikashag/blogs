@@ -1,15 +1,15 @@
 class PostsController < ApplicationController
 
-http_basic_authenticate_with :name => "dhh", :password => "secret", :only => :destroy
 
   # GET /posts
   # GET /posts.json
   def index
      @categories = Category.all
 
-    @posts = Post.all
+    # @posts = Post.order("created_at desc").limit(5)
+      @posts = Post.order("created_at desc")
 
-    respond_to do |format|
+      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
     end
@@ -19,10 +19,9 @@ http_basic_authenticate_with :name => "dhh", :password => "secret", :only => :de
   # GET /posts/1.json
   def show
      @categories = Category.all
+     @post = Post.find(params[:id])
 
-    @post = Post.find(params[:id])
-
-    respond_to do |format|
+      respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
     end
@@ -31,12 +30,10 @@ http_basic_authenticate_with :name => "dhh", :password => "secret", :only => :de
   # GET /posts/new
   # GET /posts/new.json
   def new
- @categories = Category.all
+      @categories = Category.all
+      @post = Post.new
 
-
-    @post = Post.new
-
-    respond_to do |format|
+      respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
     end
@@ -44,9 +41,8 @@ http_basic_authenticate_with :name => "dhh", :password => "secret", :only => :de
 
   # GET /posts/1/edit
   def edit
- @categories = Category.all
-
-    @post = Post.find(params[:id])
+      @categories = Category.all
+      @post = Post.find(params[:id])
   end
 
   # POST /posts
