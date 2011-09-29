@@ -1,19 +1,16 @@
 <h1>Editing Category</h1>
 
-<%= form_for(@categories) do |f| %>
- 
-  <div class="field">
-    <%= f.label :catName %><br />
-    <%= f.text_field :catName %>
-  </div>
+ <%= form_for(@categories) do |f| %>
+   <div class="field">
+     <%= f.label :catName %><br />
+     <%= f.text_field :catName %>
+   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+   <div class="actions">
+     <%= f.submit %>
+   </div>
 
-<% end %>
-
-
+ <% end %>
 
 <%= link_to 'Show',category_path(@category)  %> |
 <%= link_to 'Back', categories_path %>

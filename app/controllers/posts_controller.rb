@@ -4,9 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-     @categories = Category.all
-
-    # @posts = Post.order("created_at desc").limit(5)
+      @categories = Category.all   
       @posts = Post.order("created_at desc")
 
       respond_to do |format|
@@ -30,8 +28,8 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-      @categories = Category.all
       @post = Post.new
+      @categories = Category.all
 
       respond_to do |format|
       format.html # new.html.erb
@@ -48,17 +46,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
- @categories = Category.all
+      @post = Post.new(params[:post])
 
-
-    #@category = Category.find(params[:catid])
-    #@post = @category.posts.create(params[:post])
-
-
-
-    @post = Post.new(params[:post])
-
-    respond_to do |format|
+      respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
@@ -72,11 +62,9 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
- @categories = Category.all
+      @post = Post.find(params[:id])
 
-    @post = Post.find(params[:id])
-
-    respond_to do |format|
+      respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :ok }
@@ -90,13 +78,10 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
- @categories = Category.all
+      @post = Post.find(params[:id])
+      @post.destroy
 
-
-    @post = Post.find(params[:id])
-    @post.destroy
-
-    respond_to do |format|
+      respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :ok }
     end

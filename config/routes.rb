@@ -6,7 +6,6 @@ Blog::Application.routes.draw do
 
  # resources :users     
 
-
   resources :posts do
    resources :comments
   end 
@@ -68,26 +67,20 @@ Blog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
-
-
+   root :to => 'posts#index'
    get "users/new"  
 
-#Auth::Application.routes.draw do  
-  get "sessions/new"
+  #Auth::Application.routes.draw do  
+   get "sessions/new"
 
- # get "sign_up" => "users#new", :as => "sign_up"  
- # root :to => "users#new"  
- # resources :users  
-#end 
-
+ 	
     #Auth::Application.routes.draw do  
-      get "log_in" => "sessions#new", :as => "log_in"  
+   #   get "log_in" => "sessions#new", :as => "log_in"  
       
-      get "sign_up" => "users#new", :as => "sign_up"  
-      root :to => "users#new"  
-      resources :users  
-      resources :sessions  
+    #  get "sign_up" => "users#new", :as => "sign_up"  
+    #  root :to => "users#new"  
+    #  resources :users  
+    #  resources :sessions  
     #end  
 
 

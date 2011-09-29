@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20110923081853) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "catid"
+    t.integer  "category_id"
   end
 
   create_table "users", :force => true do |t|

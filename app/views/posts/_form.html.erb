@@ -1,12 +1,9 @@
-
-
-
+<%= stylesheet_link_tag 'widgEditor' %>
 
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
       <% @post.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -24,36 +21,19 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-
-<%= stylesheet_link_tag 'widgEditor' %>
-
-
     <%= f.label :content %><br />
-    <%= f.text_area :content,  %>
-
-   
-
+    <%= f.text_area :content %>  
   </div>
   <div class="field">
     <%= f.label :category_id %>
-
-
-
-
-<select id="post_category_id" name="post[category_id]" >
-<% @categories.each do |category| %>
-<option value="<%= category.id %>">
-<%= category.catName %>
-</option>
-<% end %>
-</select>
-
-
-
+	<select id="post_category_id" name="post[category_id]" >	
+   	   <% @categories.each do |category| %>
+		<option value="<%= category.id %>"> <%= category.catName %> </option>
+	   <% end %>
+	</select>
   </div>
-
-
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
